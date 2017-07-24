@@ -36,6 +36,8 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import com.google.firebase.iid.FirebaseInstanceId;
+
 public class MainActivity extends AppCompatActivity implements
         LoaderManager.LoaderCallbacks<Cursor> {
 
@@ -87,6 +89,12 @@ public class MainActivity extends AppCompatActivity implements
             Toast.makeText(getApplicationContext(), bundle.getString("test"), Toast.LENGTH_SHORT).show();
             Log.d(LOG_TAG, bundle.getString("test"));
         }
+
+
+        // Get token from the ID Service I have create
+        String token = FirebaseInstanceId.getInstance().getToken();
+        Log.d(LOG_TAG, "Token: " + token);
+        Toast.makeText(getApplicationContext(), "99999999999" + token, Toast.LENGTH_SHORT).show();
 
     }
 
